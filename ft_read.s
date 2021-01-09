@@ -3,7 +3,7 @@ section .text
 	extern __errno_location	; includes ___error but for linux
 
 ft_read:
-	mov		rax, 2			; rax = 1
+	mov		rax, 0			; rax = 1
 	syscall					; syscall(rax = calls index, also takes rdi, rsi and rdx as arguments)
 	test 	rax, rax		; bitwise "AND" operation, triggers the SF flag if it's signed (negative)
 	js		fail			; if SF = 1 -> rax is negative -> syscall returned an error
